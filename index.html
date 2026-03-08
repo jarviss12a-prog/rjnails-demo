@@ -26,8 +26,7 @@ html { scroll-behavior: smooth; }
 body { font-family: 'Jost', sans-serif; background: #fff; color: var(--dark); overflow-x: hidden; }
 
 /* ─── CURSOR DOT ─── */
-.cursor { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s; }
-.cursor-ring { width: 36px; height: 36px; border: 1px solid var(--gold); border-radius: 50%; position: fixed; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: all 0.15s ease; }
+
 
 /* ─── LOADING SCREEN ─── */
 .loader { position: fixed; inset: 0; background: var(--burgundy); z-index: 1000; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 20px; transition: opacity 0.8s ease, visibility 0.8s; }
@@ -254,8 +253,7 @@ nav.scrolled .nav-hamburger span { background: var(--burgundy); }
 
 /* ─── RESPONSIVE — TABLET ─── */
 @media (max-width: 900px) {
-  /* hide cursor on touch */
-  .cursor, .cursor-ring { display: none; }
+
 
   nav { padding: 0 20px; }
   .nav-center { display: none; }
@@ -375,8 +373,7 @@ nav.scrolled .nav-hamburger span { background: var(--burgundy); }
 </div>
 
 <!-- CURSOR -->
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
+
 
 <!-- FLOATING BUTTON -->
 <a href="https://booksy.com/en-us/781190_red-jasper-nails_nail-salon_18229_chicago" target="_blank" class="float-btn" id="floatBtn">
@@ -725,13 +722,7 @@ window.addEventListener('load', () => {
 });
 
 // ─── CURSOR ───
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-document.addEventListener('mousemove', e => {
-  cursor.style.left = e.clientX + 'px';
-  cursor.style.top = e.clientY + 'px';
-  setTimeout(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; }, 80);
-});
+
 
 // ─── NAV SCROLL ───
 const nav = document.getElementById('mainNav');
